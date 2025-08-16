@@ -2,6 +2,7 @@ package com.nosleep;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 public class Main {
 
@@ -14,11 +15,18 @@ public class Main {
 //                    robot.keyRelease(KeyEvent.VK_2);
 //                    robot.keyPress(KeyEvent.VK_1);
 //                    robot.keyRelease(KeyEvent.VK_1);
-//                    robot.keyPress(KeyEvent.VK_SPACE);
-//                    robot.keyRelease(KeyEvent.VK_SPACE);
-                    robot.mouseMove(getMouseX() + 1, getMouseY() + 1);
-                    robot.mouseMove(getMouseX() - 1, getMouseY() - 1);
-                    Thread.sleep(10 * 1000);
+                    robot.keyPress(KeyEvent.VK_SPACE);
+                    robot.keyRelease(KeyEvent.VK_SPACE);
+//                    robot.mouseMove(getMouseX() + 1, getMouseY() + 1);
+//                    robot.mouseMove(getMouseX() - 1, getMouseY() - 1);
+                    // 创建一个随机数生成器
+                    Random random = new Random();
+
+                    // 生成 0 到 60,000 毫秒之间的随机数
+                    int randomDelay = random.nextInt(60_000 * 3); // 0 到 59999 毫秒
+
+                    System.out.println("Sleeping for " + randomDelay + " milliseconds.");
+                    Thread.sleep(randomDelay);
                 } catch (InterruptedException | AWTException e) {
                     e.printStackTrace();
                 }
